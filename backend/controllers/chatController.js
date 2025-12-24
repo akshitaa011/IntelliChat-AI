@@ -6,6 +6,8 @@ async function handleChat(req, res) {
   try {
     const { message } = req.body;
 
+    console.log("📨 Received message:", message);
+
     if (!message) {
       return res.status(400).json({ error: "Message is required" });
     }
@@ -13,6 +15,8 @@ async function handleChat(req, res) {
     const url =
       "https://generativelanguage.googleapis.com/v1/models/gemini-2.5-flash:generateContent?key=" +
       GEMINI_API_KEY;
+
+    console.log("🤖 Calling Gemini API...");
 
     const response = await fetch(url, {
       method: "POST",
@@ -27,22 +31,29 @@ async function handleChat(req, res) {
       })
     });
 
-    const data = await response.json();
+    console.log("📥 Response status:", response.status);
 
-    const reply =
+    const data = await response.json();
+    console.log("📥 Full API response:", JSON.stringify(data, null, 2));
+
+    const text =
       data?.candidates?.[0]?.content?.parts?.[0]?.text ||
       "No response generated";
 
+    console.log("✅ Extracted text:", text);
+
+    
     res.json({
       success: true,
-      reply,
-      model: data.modelVersion,
-      usage: data.usageMetadata
+      message: text
     });
 
   } catch (error) {
-    console.error("Chat Controller Error:", error);
-    res.status(500).json({ error: "Internal Server Error" });
+    console.error("❌ Chat Error:", error);
+    res.status(500).json({
+      success: false,
+      error: "Internal server error"
+    });
   }
 }
 
