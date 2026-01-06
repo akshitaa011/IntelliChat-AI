@@ -31,7 +31,7 @@ body {
     padding: 20px;
 }
 
-/* Header */
+
 .header {
     background: var(--surface);
     border-radius: 16px;
@@ -55,7 +55,7 @@ body {
     -webkit-text-fill-color: transparent;
 }
 
-/* Navigation */
+
 .nav-tabs {
     display: flex;
     gap: 12px;
@@ -88,7 +88,6 @@ body {
     color: white;
 }
 
-/* Tab Content */
 .tab-content {
     display: none;
     animation: fadeIn 0.3s;
@@ -163,7 +162,6 @@ body {
     color: white;
 }
 
-/* Chat Input */
 .chat-input-container {
     display: flex;
     gap: 12px;
@@ -201,7 +199,7 @@ body {
     transform: translateY(-2px);
 }
 
-/* Feature Container */
+
 .feature-container {
     background: var(--surface);
     border-radius: 16px;
@@ -223,7 +221,7 @@ body {
     color: var(--text-secondary);
 }
 
-/* Upload Area */
+
 .upload-area {
     border: 3px dashed var(--border);
     border-radius: 16px;
@@ -255,7 +253,7 @@ body {
     font-size: 14px;
 }
 
-/* Image Preview */
+
 .image-preview-container {
     position: relative;
     margin-bottom: 24px;
@@ -285,7 +283,7 @@ body {
     font-size: 20px;
 }
 
-/* Input Groups */
+
 .input-group {
     margin-bottom: 24px;
 }
@@ -314,7 +312,7 @@ body {
     border-color: var(--primary);
 }
 
-/* Action Button */
+
 .action-btn {
     width: 100%;
     background: var(--primary);
@@ -343,7 +341,7 @@ body {
     margin-top: 16px;
 }
 
-/* Result Container */
+
 .result-container {
     margin-top: 32px;
     padding: 24px;
@@ -369,7 +367,7 @@ body {
     margin: 16px 0;
 }
 
-/* Loading */
+
 .loading-overlay {
     position: fixed;
     top: 0;
@@ -402,7 +400,7 @@ body {
     font-size: 18px;
 }
 
-/* Responsive */
+
 @media (max-width: 768px) {
     .container {
         padding: 12px;
@@ -415,4 +413,5 @@ body {
     .message-content {
         max-width: 90%;
     }
+
 }
