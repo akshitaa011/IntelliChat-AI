@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>IntelliChat</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="shell">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-icon">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" fill="url(#brandGrad)"/><path d="M8 12h8M12 8v8" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/><defs><linearGradient id="brandGrad" x1="2" y1="2" x2="22" y2="22"><stop offset="0%" stop-color="#6366f1"/><stop offset="100%" stop-color="#06b6d4"/></linearGradient></defs></svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">IntelliChat</span>
+          <span class="brand-sub">AI Assistant</span>
+        </div>
+      </div>
+
+      <div class="nav-section">
+        <span class="nav-label">Features</span>
+        <nav class="modes">
+          <button class="mode-btn active" data-mode="chat">
+            <div class="mode-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 10h8M8 14h5M5 4h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H7l-4 4V6a2 2 0 0 1 2-2z"/></svg>
+            </div>
+            <div class="mode-text">
+              <span class="mode-title">Chat</span>
+              <span class="mode-desc">Persistent chat</span>
+            </div>
+          </button>
+          <button class="mode-btn" data-mode="analyze">
+            <div class="mode-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+            </div>
+            <div class="mode-text">
+              <span class="mode-title">Analyze Image</span>
+              <span class="mode-desc">Analyze Image</span>
+            </div>
+          </button>
+          <button class="mode-btn" data-mode="generate">
+            <div class="mode-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+            </div>
+            <div class="mode-text">
+              <span class="mode-title">Generate Image</span>
+              <span class="mode-desc">Image generation</span>
+            </div>
+          </button>
+        </nav>
+      </div>
+
+      <div class="sidebar-footer">
+        <div class="status-row">
+          <span class="status-dot"></span>
+          <span class="status-text">All systems online</span>
+        </div>
+        <div class="footer-links">
+          <a href="https://x.com/_akshitaa11" target="_blank" rel="noopener noreferrer">Twitter</a>
+          <span class="footer-dot">·</span>
+          <a href="https://www.linkedin.com/in/akshita-singhal-649956304" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </div>
+        <p class="footer-copy">© 2025 Akshita Singhal</p>
+      </div>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main">
+
+      <!-- CHAT PANEL -->
+      <section class="panel active" id="panel-chat">
+        <div class="panel-header">
+          <div class="panel-header-left">
+            <h2>Chat</h2>
+    
+          </div>
+          <button class="clear-chat-btn" id="clear-chat" title="Clear conversation">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6"/></svg>
+            Clear
+          </button>
+        </div>
+
+        <div class="messages" id="chat-messages">
+          <div class="welcome">
+            <!-- <div class="welcome-icon">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" fill="url(#wGrad)"/><path d="M8 12h8M12 8v8" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/><defs><linearGradient id="wGrad" x1="2" y1="2" x2="22" y2="22"><stop offset="0%" stop-color="#6366f1"/><stop offset="100%" stop-color="#06b6d4"/></linearGradient></defs></svg>
+            </div> -->
+            <h1>Hello, I'm IntelliChat</h1>
+            <p>Your intelligent AI assistant. Ask me anything. </p>
+            <div class="welcome-chips">
+              <button class="chip" data-msg="Explain quantum computing">Explain quantum computing</button>
+              <button class="chip" data-msg="Write a Python function">Write a Python function</button>
+              <button class="chip" data-msg="What's the latest in AI?">What's the latest in AI?</button>
+          </div>
+          </div>
+        </div>
+
+        <div class="input-bar">
+          <div class="input-wrap">
+            <textarea id="chat-input" placeholder="Message IntelliChat..." rows="1"></textarea>
+            <button id="chat-send" class="send-btn" title="Send message">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            </button>
+          </div>
+          <!-- <p class="input-hint">Press Enter to send · Shift+Enter for new line</p> -->
+        </div>
+      </section>
+
+      <!-- ANALYZE PANEL -->
+      <section class="panel" id="panel-analyze">
+        <div class="panel-header">
+          <div class="panel-header-left">
+            <h2>Analyze Image</h2>
+            <!-- <span class="panel-badge">Vision AI via OpenRouter</span> -->
+          </div>
+        </div>
+
+        <div class="tool-scroll">
+          <div class="tool-wrap">
+            <div class="upload-area" id="drop-zone">
+              <div class="upload-inner">
+                <div class="upload-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                </div>
+                <p class="upload-title">Drop your image here</p>
+                <p class="upload-sub">or click to browse · PNG, JPG, WEBP up to 5MB</p>
+                <button class="upload-btn">Choose File</button>
+              </div>
+              <input type="file" id="image-file" accept="image/*" hidden />
+            </div>
+
+            <div class="preview-wrap" id="preview-wrap" hidden>
+              <img id="image-preview" class="preview-img" alt="Preview" />
+              <button id="clear-image" class="clear-img-btn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                Remove
+              </button>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label">What do you want to know?</label>
+              <input type="text" id="analyze-prompt" class="text-field" placeholder="e.g. Describe this image, What objects are in it?, What text can you see?" />
+            </div>
+
+            <button id="analyze-btn" class="action-btn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+              Analyze Image
+            </button>
+
+            <div class="result-card" id="analyze-result" hidden>
+              <div class="result-card-header">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/></svg>
+                Analysis Result
+              </div>
+              <div class="result-card-body" id="analyze-result-text"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- GENERATE PANEL -->
+      <section class="panel" id="panel-generate">
+        <div class="panel-header">
+          <div class="panel-header-left">
+            <h2>Generate Image</h2>
+            <!-- <span class="panel-badge">Pollinations AI · Free & Unlimited</span> -->
+          </div>
+        </div>
+
+        <div class="tool-scroll">
+          <div class="tool-wrap">
+            <div class="prompt-examples">
+              <span class="examples-label">Try these:</span>
+              <button class="example-chip" data-prompt="A futuristic city at sunset">A futuristic city at sunset</button>
+              <button class="example-chip" data-prompt="Portrait of a samurai in rain">Portrait of a samurai in rain</button>
+              <button class="example-chip" data-prompt="Abstract geometric art">Abstract geometric art</button>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label">Image Prompt</label>
+              <textarea id="gen-prompt" class="text-field gen-textarea" rows="4" placeholder="Describe the image you want to create in detail..."></textarea>
+            </div>
+
+            <button id="gen-btn" class="action-btn gen-action-btn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+              Generate Image
+            </button>
+
+            <div id="gen-loading" class="gen-loading" hidden>
+              <div class="gen-loading-bar"><div class="gen-loading-fill"></div></div>
+              <p>Creating your image, please wait...</p>
+            </div>
+
+            <div id="gen-result" class="gen-result" hidden>
+              <div class="gen-result-header">
+                <span>Generated Image</span>
+                <a id="gen-download" class="download-btn" download="intellichat-generated.jpg">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                  Download
+                </a>
+              </div>
+              <img id="gen-image" class="gen-img" alt="Generated image" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
